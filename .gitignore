@@ -1,1 +1,12 @@
+# dependencies
 node_modules/
+/.pnp
+.pnp.js
+.yarn/install-stat
+
+#testing
+/coverage
+
+#next.js
+/.next/
+/out/
