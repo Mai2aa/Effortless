@@ -2,7 +2,8 @@
 import React from 'react'
 import Image from "next/image";
 import { Button } from '../../components/ui/button';
-import { UserButton, useUser } from '@clerk/nextjs';
+import { UserButton, useUser, SignInButton } from '@clerk/nextjs';
+import Link from 'next/link';
 
 function Header() {
   const {user, isSignedIn}=useUser();
@@ -12,10 +13,14 @@ function Header() {
         <Image src={'/logo1.svg'} width={180} height={50} alt='logo'/>
         {isSignedIn?
         <div className='flex items-center gap-5'>
-        <Button varient="outline">Dashboard</Button>
+          <Link href={'/dashboard'}>
+          <Button varient="outline">Dashboard</Button>
+          </Link>
         <UserButton/>
         </div>:
+        <SignInButton>
         <Button>Get Started</Button>
+        </SignInButton>
       }
       </div>
     </div>
