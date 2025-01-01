@@ -1936,6 +1936,9 @@ html {
 .gap-4 {
   gap: 1rem;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .whitespace-nowrap {
   white-space: nowrap;
 }
