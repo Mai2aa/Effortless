@@ -1,4 +1,4 @@
 {
-  "/page": "app/page.js",
+  "/edit-form/[formID]/page": "app/edit-form/[formID]/page.js",
   "/dashboard/page": "app/dashboard/page.js"
 }
