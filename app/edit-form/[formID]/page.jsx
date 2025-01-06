@@ -7,6 +7,7 @@ import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import FormUI from '@/app/edit-form/_components/FormUI'
+import Controller from '@/app/edit-form/_components/Controller'
 import { toast } from 'sonner'
 function EditForm({ params }) {
   const { user } = useUser();
@@ -18,6 +19,8 @@ function EditForm({ params }) {
   const [updateTrigger,setUpdateTrigger]=useState();
   const [record, setRecord]=useState([]);
 
+  const [selectedTheme,setSelectedTheme]=useState('light');
+  const [selectedBackground,setSelectedBackground]=useState();
   useEffect(() => {
     // Unwrap params using React.use
     const resolveParams = async () => {
@@ -51,6 +54,7 @@ function EditForm({ params }) {
         console.log(parsedForm);
         setRecord(result[0])
         setJsonForm(parsedForm);
+        setSelectedBackground(result[0].background)
       } else {
         console.warn("No form data found or invalid format.");
       }
@@ -99,6 +103,13 @@ function EditForm({ params }) {
     setUpdateTrigger(Date.now())
   }
 
+  const updateControllerFields=async(value,columnName)=>{
+    const result=await db.update(JsonForms).set({
+    [columnName]:value
+    }).where(eq(JsonForms.id,record.id),
+    eq(JsonForms.createdBy,user?.primaryEmailAddress?.emailAddress))
+  toast('Updated')
+  }
   return (
     <div className='p-10'>
       <h2 className='flex gap-2 items-center my-5 cursor-pointer hover:font-bold'
@@ -107,10 +118,25 @@ function EditForm({ params }) {
       </h2>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
         <div className='p-5 border rounded-lg shadow-md'>
-          Controller
+          <Controller
+          selectedTheme={(value)=>
+            {
+              updateControllerFields(value, 'theme')
+              setSelectedTheme(value)
+            }}
+            selectedBackground={(value)=>
+              {
+                updateControllerFields(value, 'background')
+                setSelectedBackground(value)
+              }
+            }
+            />
         </div>
-        <div className='md:col-span-2 border rounded-lg p-5 flex items-center justify-center'>
+        <div className='md:col-span-2 border rounded-lg p-5 flex items-center justify-center'
+        style={{backgroundImage:selectedBackground}}
+        >
         <FormUI jsonForm={jsonForm}
+        selectedTheme={selectedTheme}
         onFieldUpdate={onFieldUpdate}
         deleteField={(index)=>deleteField(index)}
         />

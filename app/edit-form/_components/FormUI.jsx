@@ -12,22 +12,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function FormUI({ jsonForm = {}, onFieldUpdate,deleteField }) {
+function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField }) {
   const { formTitle, formSubheading, formFields = [] } = jsonForm;
 
 
   return (
-    <div className='border p-5 md:w-[600px] rounded-lg'>
+    <div className='border p-5 md:w-[600px] rounded-lg' data-theme={selectedTheme}>
       <h2 className='font-bold text-center text-2xl'>{formTitle}</h2>
       <h2 className='text-sm text-gray-400 text-center'>{formSubheading}</h2>
       {Array.isArray(formFields) &&
         formFields.map((field, index) => (
-          <div key={index} className='flex items-center gap-2'>
+          <div key={index} className='flex items-center gap-2 '>
             {field.fieldType === 'select' ? (
               <div className='my-2 w-full'>
                 <label className='text-xs text-gray-500'>{field.formLabel}</label> 
                 <Select>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full bg-transparent">
                     <SelectValue placeholder={field.placeholder} />
                   </SelectTrigger>
                   <SelectContent>
@@ -85,7 +85,7 @@ function FormUI({ jsonForm = {}, onFieldUpdate,deleteField }) {
           </div>
          
         ))}
-        
+       <button className='btn btn-primary'>Submit</button> 
     </div>
   );
 }
