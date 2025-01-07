@@ -3,12 +3,14 @@ import { db } from '@/configs'
 import { JsonForms } from '@/configs/schema'
 import { useUser } from '@clerk/nextjs'
 import { and, eq } from 'drizzle-orm'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Share2, SquareArrowOutUpRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import FormUI from '@/app/edit-form/_components/FormUI'
 import Controller from '@/app/edit-form/_components/Controller'
 import { toast } from 'sonner'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 function EditForm({ params }) {
   const { user } = useUser();
   const [jsonForm, setJsonForm] = useState({
@@ -21,6 +23,7 @@ function EditForm({ params }) {
 
   const [selectedTheme,setSelectedTheme]=useState('light');
   const [selectedBackground,setSelectedBackground]=useState();
+  const [selectedStyle,setSelectedStyle]=useState();
   useEffect(() => {
     // Unwrap params using React.use
     const resolveParams = async () => {
@@ -55,6 +58,7 @@ function EditForm({ params }) {
         setRecord(result[0])
         setJsonForm(parsedForm);
         setSelectedBackground(result[0].background)
+        setSelectedStyle(result[0].style)
       } else {
         console.warn("No form data found or invalid format.");
       }
@@ -112,10 +116,19 @@ function EditForm({ params }) {
   }
   return (
     <div className='p-10'>
-      <h2 className='flex gap-2 items-center my-5 cursor-pointer hover:font-bold'
-      onClick={()=>router.back()}>
-        <ArrowLeft/>Back
-      </h2>
+      <div className='flex justify-between items-center'>
+        <h2 className='flex gap-2 items-center my-5 cursor-pointer hover:font-bold'
+        onClick={()=>router.back()}>
+          <ArrowLeft/>Back
+        </h2>
+        <div className='flex gap-2'>
+        <Link href={'/aiform/'+record?.id} target='_blank'>
+          <Button className='flex gap-2'><SquareArrowOutUpRight className='h-5 w-5'/>Live Preview</Button>
+        </Link>
+        <Button className='flex gap-2 bg-green-600 hover:bg-green-700'><Share2/>Share</Button>
+      </div>
+      </div>
+      
       <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
         <div className='p-5 border rounded-lg shadow-md'>
           <Controller

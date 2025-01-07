@@ -10,6 +10,7 @@ import Themes from '@/app/_data/Themes'
 import GradientBg from '@/app/_data/GradientBg'
 import { Button } from '@/components/ui/button';
 
+
 function Controller({selectedTheme,selectedBackground}) {
   const [showMore,setShowMore]=useState(6);
   return <div>

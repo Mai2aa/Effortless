@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField }) {
+function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField,editable=true }) {
   const { formTitle, formSubheading, formFields = [] } = jsonForm;
 
 
@@ -76,12 +76,12 @@ function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField }) {
                 />
               </div>
             )}
-           <div>
+          {editable&&<div>
           <FieldEdit defaultValue={{ label: field.formLabel, placeholder: field.placeholder }}
           onUpdate={(value)=>onFieldUpdate(value,index)}
           deleteField={()=>deleteField(index)}
           />
-          </div> 
+          </div>}
           </div>
          
         ))}
