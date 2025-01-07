@@ -9,3 +9,10 @@ export const JsonForms=pgTable('JsonForms',{
     createdBy:varchar('createdBy').notNull(),
     createdAt:varchar('createdAt').notNull()
 })
+
+export const userResponse=pgTable('userResponses',{
+    id:serial('id').primaryKey(),
+    jsonResponse:text('jsonResponse').notNull(),
+    createdBy:varchar('createdBy').default('anonymous'),
+    createdAt:varchar('createdAt').notNull() 
+})
