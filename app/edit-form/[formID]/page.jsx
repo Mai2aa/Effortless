@@ -11,6 +11,7 @@ import Controller from '@/app/edit-form/_components/Controller'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { RWebShare } from 'react-web-share'
 function EditForm({ params }) {
   const { user } = useUser();
   const [jsonForm, setJsonForm] = useState({
@@ -125,7 +126,17 @@ function EditForm({ params }) {
         <Link href={'/aiform/'+record?.id} target='_blank'>
           <Button className='flex gap-2'><SquareArrowOutUpRight className='h-5 w-5'/>Live Preview</Button>
         </Link>
-        <Button className='flex gap-2 bg-green-600 hover:bg-green-700'><Share2/>Share</Button>
+        <RWebShare
+                data={{
+                text: jsonForm?.formSubheading+"Build your form in seconds with E-formless",
+                url: process.env.NEXT_PUBLIC_BASE_URL+"/aiform/"+record?.id,
+                title: jsonForm?.formTitle,
+                }}
+                onClick={() => console.log("shared successfully!")}
+            >
+                                   <Button className='flex gap-2 bg-green-600 hover:bg-green-700'><Share2/>Share</Button>
+            </RWebShare>
+
       </div>
       </div>
       

@@ -16,7 +16,7 @@ import { toast } from 'sonner';
 import { userResponse } from '@/configs/schema';
 import moment from 'moment';
 
-function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField,editable=true }) {
+function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField,editable=true, formId=0 }) {
   const { formTitle, formSubheading, formFields = [] } = jsonForm;
   const [formData,setFormData]=useState();
   let formRef=useRef();
@@ -44,7 +44,8 @@ function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField,editable
     const result=await db.insert(userResponse)
     .values({
       jsonResponse:formData,
-      createdAt:moment().format('DD/MM/yyyy')
+      createdAt:moment().format('DD/MM/yyyy'),
+      formRef:formId
     })
 
     if(result)

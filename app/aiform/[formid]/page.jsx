@@ -44,6 +44,7 @@ const [resolvedParams, setResolvedParams] = useState(null);
         deleteField={()=>console.log}
         selectedTheme={record?.theme}
         editable={false}
+        formId={record.id}
         />}
         <Link className='flex gap-2 items-center
         bg-black text-white px-3 py-1 rounded-full
