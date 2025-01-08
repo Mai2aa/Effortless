@@ -30,6 +30,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/edit-form/[formID]/page.js"
+    ],
+    "/dashboard/responses/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/responses/page.js"
     ]
   }
 }
