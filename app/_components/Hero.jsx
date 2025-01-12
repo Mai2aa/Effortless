@@ -11,14 +11,13 @@ function Hero() {
       </h1>
 
       <p className="mt-4 sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
+      The revolutionary AI form builder that empowers you to create professional, customized forms in just minutes. 
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <a
           className="block w-full rounded bg-secondary px-12 py-3 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary sm:w-auto"
-          href="#"
+          href="/dashboard"
         >
           Create Form
         </a>
@@ -33,6 +32,7 @@ function Hero() {
     </div>
   </div>
 </section>
+
   )
 }
 

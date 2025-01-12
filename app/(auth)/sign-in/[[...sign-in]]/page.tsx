@@ -1,4 +1,5 @@
 import { SignIn } from '@clerk/nextjs'
+import Image from 'next/image'
 import React from 'react'
 
 export default function Page() {
@@ -6,9 +7,11 @@ export default function Page() {
 <section className="bg-white">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-      <img
+      <Image
         alt=""
-        src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        width={500}
+        height={500}
+        src={"/E-form.png"}
         className="absolute inset-0 h-full w-full object-cover opacity-80"
       />
 
@@ -29,12 +32,11 @@ export default function Page() {
         </a>
 
         <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-          Welcome to Squid 🦑
+          Welcome to Effortless 🦑
         </h2>
 
         <p className="mt-4 leading-relaxed text-white/90">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-          quibusdam aperiam voluptatum.
+        Ready to revolutionize your form-building experience? Sign up today to unlock the full potential of our AI-driven platform.
         </p>
       </div>
     </section>
@@ -67,8 +69,7 @@ export default function Page() {
           </h1>
 
           <p className="mt-4 leading-relaxed text-gray-500">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-            quibusdam aperiam voluptatum.
+          Already have an account? Sign in to access your saved forms, collaborate with your team, and continue building smarter, more effective forms. Your journey to effortless data collection starts here!
           </p>
         </div>
 

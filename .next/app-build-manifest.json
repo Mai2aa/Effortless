@@ -6,16 +6,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/dashboard/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/layout.js"
-    ],
-    "/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/page.js"
-    ],
     "/(auth)/sign-in/[[...sign-in]]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -26,30 +16,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/dashboard/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/layout.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/page.js"
+    ],
     "/dashboard/responses/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/responses/page.js"
     ],
-    "/edit-form/[formID]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/edit-form/[formID]/page.js"
-    ],
-    "/aiform/[formid]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/aiform/[formid]/page.js"
-    ],
     "/dashboard/upgrade/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/upgrade/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
