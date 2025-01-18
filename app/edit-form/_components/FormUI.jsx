@@ -109,7 +109,7 @@ function FormUI({ jsonForm = {},selectedTheme,onFieldUpdate,deleteField,editable
               <div className='my-2 w-full'>
                 <label className='text-xs text-gray-500'>{field.formLabel}</label> 
                 <RadioGroup required={field?.fieldRequired}>
-                  {field.options.map((item, idx) => (
+                  {field?.options?.map((item, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
                       <RadioGroupItem value={item} id={`${field.formName}-${idx}`}
                       onClick={()=>handleSelectChange(field.formLabel,item.label)}
