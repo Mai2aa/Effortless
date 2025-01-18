@@ -1,7 +1,8 @@
 {
   "/aiform/[formid]/page": "app/aiform/[formid]/page.js",
   "/edit-form/[formID]/page": "app/edit-form/[formID]/page.js",
-  "/dashboard/analytics/page": "app/dashboard/analytics/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/dashboard/upgrade/page": "app/dashboard/upgrade/page.js",
-  "/dashboard/responses/page": "app/dashboard/responses/page.js"
+  "/dashboard/responses/page": "app/dashboard/responses/page.js",
+  "/dashboard/analytics/page": "app/dashboard/analytics/page.js"
 }
